@@ -380,7 +380,7 @@ static inline NSString *cachedFileNameForKey(NSString *string) {
 - (void)removeAllObjects {
     dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
     [_linkedMap removeAll];
-    if ([_fileManager fileExistsAtPath:getDefaultDiskCachePath().stringByDeletingPathExtension]) {
+    if ([_fileManager fileExistsAtPath:getDefaultDiskCachePath()]) {
         [_fileManager removeItemAtPath:getDefaultDiskCachePath() error:nil];
     }
     [self removeModelWithId];
